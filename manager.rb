@@ -55,10 +55,34 @@ class Manager < Employee
     # write some code here to actually sent the report
     p "totally just sent that report"
   end
+
+  def give_all_raises
+    # loop through the employees
+    @employees.each do |employee|
+      # give them each a raise
+      employee.give_annual_raise
+    end
+  end
+
+  def fire_all_employees
+    # loop through the employees
+    @employees.each do |employee|
+      employee.active = false
+    end
+    # fire each of them
+  end
 end
 
 
 manager1 = Manager.new(first_name: "Manny", last_name: "Williams", salary: 100000, active: true, employees: [employee1, employee2])
 
-manager1.print_info
+manager1.fire_all_employees
 p manager1
+
+# manager1.print_info
+# manager1.give_all_raises
+# p manager1.class.superclass.superclass
+
+# get all the employees
+# loop through the employees
+# give the employees raises
