@@ -43,26 +43,3 @@ class Employee
     @salary *= 1.05
   end
 end
-
-employee1 = Employee.new({:salary => 80000, :last_name => "Campos", :first_name => "Danilo", :active => true})
-
-employee2 = Employee.new(salary: 70000, last_name: "Carter", first_name: "Majora", active: true)
-
-# employee2 = Employee.new("Majora", "Carter", 70000, true)
-
-employee1.active = false
-p employee1.active
-# p 'employee 1 before raise'
-employee1.print_info
-employee1.give_annual_raise
-p 'employee1 after raise'
-employee1.print_info
-p "*" * 50
-p "employee2 before raise"
-employee2.print_info
-employee2.give_annual_raise
-p "employee2 after raise"
-employee2.print_info
-
-
-# p employee1.salary
