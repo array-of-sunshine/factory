@@ -6,9 +6,9 @@ require './intern'
 
 
 
-employee1 = Employee.new({:salary => 80000, :last_name => "Campos", :first_name => "Danilo", :active => true})
+employee1 = Actualize::Employee.new({:salary => 80000, :last_name => "Campos", :first_name => "Danilo", :active => true})
 
-employee2 = Employee.new(salary: 70000, last_name: "Carter", first_name: "Majora", active: true)
+employee2 = Actualize::Employee.new(salary: 70000, last_name: "Carter", first_name: "Majora", active: true)
 
 
 employee1.active = false
@@ -34,7 +34,7 @@ p employee1.salary
 # baseball-hat # kebab case
 
 
-manager1 = Manager.new(first_name: "Manny", last_name: "Williams", salary: 100000, active: true, employees: [employee1, employee2])
+manager1 = Actualize::Manager.new(first_name: "Manny", last_name: "Williams", salary: 100000, active: true, employees: [employee1, employee2])
 
 manager1.fire_all_employees
 manager1.send_report
@@ -47,7 +47,8 @@ p manager1.class.superclass.superclass
 # loop through the employees
 # give the employees raises
 
-intern1 = Intern.new(first_name: "Ingrid", last_name: "ahsdfja", salary: 0, active: true)
+
+intern1 = Actualize::Intern.new(first_name: "Ingrid", last_name: "ahsdfja", salary: 0, active: true)
 
 intern1.print_info
 intern1.send_report
