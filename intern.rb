@@ -1,5 +1,12 @@
 # a manager can do everything an employee can do
 # a manager can also send reports
+module EmailReportable
+  def send_report
+    p "going to send the report"
+    # write some code here to actually sent the report
+    p "totally just sent that report"
+  end
+end
 
 class Employee
   attr_reader :active, :first_name, :last_name, :salary
@@ -55,11 +62,7 @@ class Manager < Employee
     @employees = input_options[:employees]
   end
 
-  def send_report
-    p "going to send the report"
-    # write some code here to actually sent the report
-    p "totally just sent that report"
-  end
+  include EmailReportable
 
   def give_all_raises
     # loop through the employees
@@ -82,12 +85,25 @@ end
 manager1 = Manager.new(first_name: "Manny", last_name: "Williams", salary: 100000, active: true, employees: [employee1, employee2])
 
 manager1.fire_all_employees
-p manager1
+manager1.send_report
 
 manager1.print_info
-# manager1.give_all_raises
-# p manager1.class.superclass.superclass
+manager1.give_all_raises
+p manager1.class.superclass.superclass
 
 # get all the employees
 # loop through the employees
 # give the employees raises
+
+
+# an intern can do everything an employee can do, and they can also send reports
+
+# who should intern inherit from?
+class Intern < Employee
+  include EmailReportable
+end
+
+intern1 = Intern.new(first_name: "Ingrid", last_name: "ahsdfja", salary: 0, active: true)
+
+intern1.print_info
+intern1.send_report
